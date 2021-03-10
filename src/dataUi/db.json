@@ -23,12 +23,11 @@
   ],
   "apis":[
      { "id":1,
-      "user_api":{
         "method": "get",
         "path": "/auth/login/",
         "tags": "User",
         "privilegesId": 1
-      }
+     
      },
      {"id":2,
       "method": "post",
