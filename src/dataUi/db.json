@@ -1,0 +1,53 @@
+{
+  "privileges": [
+    {
+      "details": {
+        "name": "humaira",
+        "email": "humai@gmail.com",
+        "description": "Artist",
+        "password": "123",
+        "r_password": "123"
+      },
+      "id": 1
+    },
+    {
+      "details": {
+        "name": "Harini",
+        "description": "Supervisor",
+        "email": "harini@gmail.com",
+        "password": "234",
+        "r_password": "234"
+      },
+      "id": 2
+    }
+  ],
+  "apis":[
+     { "id":1,
+      "user_api":{
+        "method": "get",
+        "path": "/auth/login/",
+        "tags": "User",
+        "privilegesId": 1
+      }
+     },
+     {"id":2,
+      "method": "post",
+      "path": "/show/",
+      "tags": "User",
+      "privilegesId": 3
+      },
+      {"id":3,
+        "method": "post",
+        "path": "/show/task/",
+        "tags": "User",
+        "privilegesId": 4
+      },
+      {"id":4,
+        "method": "delete",
+        "path": "/service/",
+        "tags": "User",
+        "privilegesId": 4
+      }
+
+  ]
+}
