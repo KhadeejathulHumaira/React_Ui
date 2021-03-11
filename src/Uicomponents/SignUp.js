@@ -35,7 +35,7 @@ function SignUp () {
                       details.description==="Dev-Extended")
                       { 
                         alert("Successfully Submitted");
-                        axios.post('http://localhost:3001/privleges',{details})
+                        axios.post('http://localhost:3004/privileges',{details})
                         .then(res=>{
                             console.log(res.data)
                         })
@@ -80,9 +80,9 @@ function SignUp () {
                                 <option>Lead</option>
                                 <option>Supervisor</option>
                                 <option>It</option>
-                                <option>It-Extended</option>
+                                <option>It_Extended</option>
                                 <option>Dev</option>
-                                <option>Dev-Extended</option>
+                                <option>Dev_Extended</option>
                                 </datalist>    
                             </Input>
                             </InputField>

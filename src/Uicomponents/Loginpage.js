@@ -13,7 +13,8 @@ function Loginpage() {
         email:' ',
         password:' '
     })
-    const[db_details,setDbdetails]=useState({})
+    const[db_details,setDbdetails]=useState([])
+    const[apis,setApis]=useState([])
     
     const handleChange=(e)=>{
         setUser({
@@ -21,33 +22,86 @@ function Loginpage() {
             [e.target.name]:e.target.value
         })
     }
-    const get_User=()=>{
-        axios.get(`http://localhost:3001/privileges?details.email=${user.email}&details.password=${user.password}`)
+    const get_User=(person)=>{
+        axios.get(`http://localhost:3004/privileges?details.email=${person.email}&details.password=${person.password}`)
         .then(res=>{
             setDbdetails(res.data)
         })
     }
-    useEffect(()=>{
-        get_User()
-    })
+    const get_apis=()=>{
+        axios.get(`http://localhost:3004/apis`)
+        .then(res=>{
+            setApis(res.data)
+        })
+    }
 
+    const Match=()=>{
+        apis.map(api=>{
+            db_details.map(item=>{
+                if (api.privilegesId===item.id){
+                    if(item.details.description==="Artist"){
+                        history.push(api.path)
+                        console.log("it works")
+                        console.log(2)
+                    }
+                    else if(item.details.description==="Supervisor"){
+                        history.push(api.path)
+                        console.log("Hey Supervisor")
+                 }
+                 else if(item.details.description==="It"){
+                    history.push(api.path)
+                    console.log("Hey It")
+                }
+                else if(item.details.description==="Lead"){
+                    history.push(api.path)
+                    console.log("Hey Lead")
+                }
+                else if(item.details.description==="It_Extended"){
+                    history.push(api.path)
+                    console.log("Hey It_Extended")
+                }
+                else if(item.details.description==="Dev"){
+                    history.push(api.path)
+                    console.log("Hey Dev")
+                }
+                else if(item.details.description==="Dev_Extended"){
+                    history.push(api.path)
+                    console.log("Hey Dev_Extended")
+                }
+                else{
+                    console.log("sorry")
+                }
+                }
+            })
+            
+        })
+    }
+    useState(()=>{
+        get_apis()
+        get_User(user)
+    },[])
+   
+    
     const checkUser=()=>{
         db_details.map(item=>{
             if(item.details.description==="Artist"){
+                    console.log(item.id)
                    history.push("/auth/login")
                    console.log("Hello Artist")
             }
             else if(item.details.description==="Supervisor"){
-                
-                   console.log("Hey Supervisor")
+                history.push("/show")
+                console.log("Hey Supervisor")
             }
             else if(item.details.description==="It"){
+                history.push("/show")
                console.log("Hey It")
            }
            else if(item.details.description==="Lead"){
                console.log("Hey Lead")
            }
            else if(item.details.description==="It_Extended"){
+               history.push("/show/task")
                console.log("Hey It_Extended")
            }
            else if(item.details.description==="Dev"){
@@ -63,14 +117,12 @@ function Loginpage() {
     }
     const handleSubmit=(e)=>{
         e.preventDefault()
-                if (db_details.length===0){
-                    alert("User Not Found")
+        get_User(user)
+                if (db_details.length!=0){
+                    alert("Logged IN")
+                   Match()
                  }
-                 else{
-                 
-                     alert("Logged IN")
-                    checkUser()
-                 } 
+                
             }
          
         const re_direct=()=>{
