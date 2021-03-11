@@ -19,34 +19,107 @@
         "r_password": "234"
       },
       "id": 2
+    },
+    {
+      "details": {
+        "name": "Anandh",
+        "description": "It",
+        "email": "anandh@gmail.com",
+        "password": "678",
+        "r_password": "678"
+      },
+      "id": 3
+    },
+    {
+      "details": {
+        "name": "Harry",
+        "description": "Lead",
+        "email": "harry@gmail.com",
+        "password": "345",
+        "r_password": "345"
+      },
+      "id": 4
+    },
+    {
+      "details": {
+        "name": "John",
+        "description": "It_Extended",
+        "email": "john@gmail.com",
+        "password": "457",
+        "r_password": "457"
+      },
+      "id": 5
+    },
+    {
+      "details": {
+        "name": "Hema",
+        "description": "Dev",
+        "email": "hema@gmail.com",
+        "password": "321",
+        "r_password": "321"
+      },
+      "id": 6
+    },
+    {
+      "details": {
+        "name": "Ron",
+        "description": "Dev_Extended",
+        "email": "ron@gmail.com",
+        "password": "765",
+        "r_password": "765"
+      },
+      "id": 7
     }
   ],
-  "apis":[
-     { "id":1,
-        "method": "get",
-        "path": "/auth/login/",
-        "tags": "User",
-        "privilegesId": 1
-     
-     },
-     {"id":2,
+  "apis": [
+    {
+      "id": 1,
+      "method": "get",
+      "path": "/auth/login/",
+      "tags": "User",
+      "privilegesId": 1
+    },
+    {
+      "id": 2,
       "method": "post",
-      "path": "/show/",
+      "path": "/show/task",
+      "tags": "User",
+      "privilegesId": 4
+    },
+    {
+      "id": 3,
+      "method": "get",
+      "path": "/show",
+      "tags": "User",
+      "privilegesId": 2
+    },
+    {
+      "id": 4,
+      "method": "show",
+      "path": "/show",
       "tags": "User",
       "privilegesId": 3
-      },
-      {"id":3,
-        "method": "post",
-        "path": "/show/task/",
-        "tags": "User",
-        "privilegesId": 4
-      },
-      {"id":4,
-        "method": "delete",
-        "path": "/service/",
-        "tags": "User",
-        "privilegesId": 4
-      }
-
+    },
+    {
+        "id": 5,
+      "method": "delete",
+      "path": "/service",
+      "tags": "User",
+      "privilegesId": 5
+    },
+    {
+        "id": 6,
+      "method": "post",
+      "path": "/show/task",
+      "tags": "User",
+      "privilegesId": 6
+    },
+    {
+        "id": 7,
+      "method": "delete",
+      "path": "/show/task",
+      "tags": "User",
+      "privilegesId": 7
+    }
   ]
 }
